@@ -1,0 +1,10 @@
+pytimedinput>=1.0.0
+streamlit>=1.18.0
+requests>=2.31.0
+beautifulsoup4>=4.12.3
+
+
+
+pip install requests>=2.31.0
+
+pip install beautifulsoup4>=4.12.3
