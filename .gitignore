@@ -1,0 +1,110 @@
+# Arquivos de cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Arquivos de ambiente virtual
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+logs/
+
+# Arquivos temporários
+*.tmp
+*.temp
+.tmp/
+
+# Arquivos de dados do projeto (cache)
+news
+sites
+*.pickle
+*.pkl
+
+# Arquivos de configuração local
+.env
+.env.local
+.env.production
+
+# Arquivos do Streamlit
+.streamlit/secrets.toml
+
+# Arquivos do Chrome/Selenium
+chromedriver
+chromedriver.exe
+geckodriver
+geckodriver.exe
+
+# Arquivos de download
+downloads/
+*.csv
+*.xlsx
+*.json
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Arquivos de teste
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Arquivos de Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Arquivos de cache do pip
+.pip/
+
+# Arquivos de cache do conda
+.conda/
+
+# Arquivos de cache do poetry
+poetry.lock 

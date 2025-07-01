@@ -1,0 +1,304 @@
+# CRIAR AMBIENTE VIRTUAL
+
+py -3.11 -m venv .venv
+
+-----------------------------------
+
+# ATIVAR AMBIENTE VIRTUAL
+
+.\.venv\Scripts\Activate.ps1
+
+------------------------------------
+
+# INSTALAR PIP 25.1.1
+
+python.exe -m pip install --upgrade pip
+
+------------------------------------
+
+# INSTALAR OU DESINSTALAR REQUIREMENTS
+
+pip install -r requirements.txt
+
+pip uninstall -r requirements.txt
+
+---------------------------------------
+
+# INSTALAR PYAUDIO SEPARADAMENTE
+
+pip install pipwin
+
+pipwin install pyaudio
+
+pip install pyaudio
+
+----------------------------------------
+
+# DESATIVAR AMBIENTE VIRTUAL
+
+deactivate
+
+----------------------------------------
+
+# LISTAR AS VERSÕES DO PYTHON
+
+py -0p
+
+----------------------------------------
+
+# CONFIRMAR VERSÃO PYTHON
+
+python --version
+
+--------------------------------------
+
+# RODAR CÓDIGO
+
+python bom_dia.py
+
+--------------------------------------
+
+bom_dia.bat
+
+voz_listener.py
+
+voz_listener.bat
+
+
+
+🎙️ ATIVAÇÃO POR VOZ:
+1. Diga "bom dia" com o `voz_listener.py` em execução.
+2. Isso inicia automaticamente o `bom_dia.py`.
+
+📌 PARA TESTAR:
+- Execute `bom_dia.bat` para ver a automação passo a passo.
+- Use `voz_listener.bat` para ativar o ouvinte por voz.
+
+
+
+
+⚙️ INSTALAÇÃO:
+1. Instale o Python 3.11.9 manualmente no novo computador (https://www.python.org/downloads/release/python-3119/)
+2. Extraia o conteúdo do ZIP em uma pasta como: C:\psicologo\setup_descktop
+3. Execute no PowerShell:
+   - `python -m venv .venv`
+   - `.venv\Scripts\Activate.ps1`
+   - `
+
+pip install -r requirements.txt
+
+4. Instale o PyAudio separadamente:
+   - `pip install pipwin`
+   - `pipwin install pyaudio`
+
+5. Instale também o modelo do Vosk:
+Acesse: https://alphacephei.com/vosk/models
+Baixe o modelo vosk-model-small-pt-0.3
+Extraia na raiz do projeto como uma pasta chamada vosk-model-small-pt-0.3
+
+
+⚠️ Importante:
+- Edite o arquivo `.env` com suas credenciais pessoais.
+- Não compartilhe o `.env` online.
+- Mantenha a resolução de tela e elementos do Chrome visíveis e iguais aos do ambiente original.
+
+🎙️ ATIVAÇÃO POR VOZ:
+1. Diga "cheguei brasil" com o `voz_listener.py` em execução.
+2. Isso inicia automaticamente o `bom_dia.py`.
+
+📌 PARA TESTAR:
+- Execute `bom_dia.bat` para ver a automação passo a passo.
+- Use `voz_listener.bat` para ativar o ouvinte por voz.
+
+🛠 SUPORTE:
+- Verifique se o Chrome está na versão 136.
+- Em caso de erro com imagens: regrave as imagens da pasta `imgs` com nova captura de tela.
+
+
+
+
+
+
+
+1. Estrutura de diretórios
+
+"D:\bom_dia"
+│
+├── .venv/                          → Ambiente virtual Python (não editar) 
+├── imagens                         → Imagens utilizadas pelo PyAutoGUI
+├── chromedriver.exe                → Navegador automatizado (versão compatível com Chrome 136)
+├── .env                            → Arquivo de variáveis de ambiente (contém senhas e tokens)
+├── bom_dia.py                      → Script principal de automação matinal
+├── bom_dia.bat                     → Atalho para execução manual do script
+├── voz_listener.py                 → Script de ativação por comando de voz
+├── voz_listener.bat                → Atalho para ativação por voz
+├── start_listener.bat              → Executável alternativo para ativação do ouvinte de voz
+├── requirements.txt                → Dependências Python
+└── funcao_buscar_imagens.py        → 
+
+
+
+
+2. Criar Ambiente virtual Python (não editar)
+
+Liste as versões registradas
+py -0p
+
+Crie o venv apontando para o 3.11
+py -3.11 -m venv .venv
+
+Ative o ambiente
+.\.venv\Scripts\Activate.ps1
+
+Confirme
+python --version
+
+Desativar o ambiente atual
+deactivate
+
+
+
+
+
+3. Arquivo de ambiente (.env)
+
+# Webmail ITEC
+ITEC_USER=luan.leite@defensoria.al.def.br
+ITEC_PASS=29Luan29
+
+# SEI
+SEI_USER=07413311445
+SEI_PASS=F8msIgji
+
+# E-SAJ (TJAL)
+ESAJ_CPF=07413311445
+ESAJ_PASS=29Luan29
+
+# SOLAR
+SOLAR_USER=07413311445
+SOLAR_PASS=29Luan29
+
+
+
+
+
+4. requirements.txt
+pip install -r requirements.txt
+
+PyAutoGUI==0.9.54
+python-dotenv==1.0.0
+opencv-python==4.8.1.78
+Pillow==10.1.0
+pyautogui>=0.9.54
+openai>=1.14.3
+requests>=2.31.0
+pyttsx3>=2.90
+beautifulsoup4>=4.12.3
+PyPDF2>=3.0.1
+python-dotenv>=1.0.1
+SpeechRecognition>=3.10.1
+
+⚠️ pyaudio deve ser instalado assim:
+pip install pipwin
+pipwin install pyaudio
+
+
+
+
+5. funcao_buscar_imagens.py
+
+import os
+import pyautogui
+from time import sleep
+from pyautogui import ImageNotFoundException
+
+# Ajuste este caminho caso mude de pasta
+IMGS = r"D:\bom_dia\imagens"
+
+def clica_na_imagem(nome,
+                    pasta=imagens,
+                    confidence=0.8,
+                    grayscale=False,
+                    clicks=1,
+                    double=False,
+                    intervalo=0.25,
+                    tentativas=3,
+                    atraso_entre_tentativas=1):
+    """
+    Localiza e clica numa imagem na tela, com tratamento de exceção.
+    - nome: nome do arquivo sem extensão
+    - pasta: diretório das imagens
+    - confidence: sensibilidade (0.0–1.0)
+    - grayscale: reduz variações de cor
+    - clicks: nº de cliques (quando double=False)
+    - double: True para duplo‐clique
+    - intervalo: intervalo entre cliques
+    - tentativas: quantas vezes tentar antes de falhar
+    - atraso_entre_tentativas: segundos entre tentativas
+    """
+    img_path = os.path.join(pasta, f"{nome}.png")
+    for tentativa in range(1, tentativas+1):
+        try:
+            pos = pyautogui.locateCenterOnScreen(img_path,
+                                                 confidence=confidence,
+                                                 grayscale=grayscale)
+            if pos:
+                x, y = pos
+                if double:
+                    pyautogui.doubleClick(x, y)
+                else:
+                    pyautogui.click(x, y, clicks=clicks, interval=intervalo)
+                sleep(0.5)
+                return
+        except ImageNotFoundException:
+            pass  # vai tentar de novo abaixo
+        sleep(atraso_entre_tentativas)
+    # se chegar aqui, falhou todas as tentativas
+    raise FileNotFoundError(f"Não foi possível localizar a imagem “{img_path}” "
+                            f"após {tentativas} tentativas (confidence={confidence}).")
+
+
+
+
+
+
+6. bom_dia.bat
+
+@echo off
+cd /d "D:\bom_dia"
+call .venv\Scripts\activate
+python bom_dia.py
+pause
+
+
+
+voz_listener.py
+
+import speech_recognition as sr
+import sys, subprocess, os
+from time import sleep
+
+TRIGGER = "bom dia"  # sua frase-chave
+
+r = sr.Recognizer()
+with sr.Microphone() as mic:
+    r.adjust_for_ambient_noise(mic, duration=1)   # calibra ruído
+    print("Listener iniciado — fone de ouvido ligado.")
+    while True:
+        print(f"Diga: {TRIGGER}")
+        audio = r.listen(mic, phrase_time_limit=5)
+        try:
+            comando = r.recognize_google(audio, language='pt-BR').lower()
+        except sr.UnknownValueError:
+            continue
+        except sr.RequestError as e:
+            print("Erro na API de voz:", e)
+            continue
+
+        if TRIGGER in comando:
+            print("Comando reconhecido! Iniciando automação...")
+            subprocess.run(
+                [sys.executable, os.path.join(os.path.dirname(__file__), 'bom_dia.py')],
+                check=True
+            )
+            sleep(1)
